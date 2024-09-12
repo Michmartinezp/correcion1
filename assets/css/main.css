@@ -636,18 +636,10 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  width: 100vw;
-    height: 100vh;
+  width: 100%;
   position: relative;
-     overflow: hidden;
   padding: 120px 0 0 0;
 }
-.full-image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra toda la sección sin distorsionarse */
-}
-
 
 .hero .container {
   position: relative;
