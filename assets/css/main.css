@@ -12,17 +12,17 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "space grotesk",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "archivo black",  sans-serif;
+  --nav-font: "space grotesk",  sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #101f0c; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #71c55d; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #730202; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #F29B30; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -30,24 +30,24 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #212529;  /* The default color of the main navmenu links */
-  --nav-hover-color: #71c55d; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-hover-color: #F29B30; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #F2EFDF; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #F2EFDF; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #71c55d; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #F29B30; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f1f6f1;
-  --surface-color: #ffffff;
+  --background-color: #F2EFDF;
+  --surface-color: #F2EFDF;
 }
 
 .dark-background {
   --background-color: #060606;
   --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --heading-color: #730202;
   --surface-color: #252525;
   --contrast-color: #ffffff;
 }
@@ -83,7 +83,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color);
+  color: #730202;
   font-family: var(--heading-font);
 }
 
@@ -638,26 +638,67 @@ section,
 .hero {
   width: 100%;
   position: relative;
-  padding: 120px 0 0 0;
+  padding: 0 0 0 0;
+}
+/* Asegura que la imagen ocupe todo el ancho del contenedor */
+.img-fluid {
+  width: 100%;
+  height: auto;
 }
 
-.hero .container {
+/* Contenedor de texto sobre la imagen */
+.position-relative {
   position: relative;
-  z-index: 3;
+}
+
+/* Estilo del texto sobrepuesto */
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%); /* Centra el texto */
+  color: #042940; /* Ajusta el color según el fondo de la imagen */
+  text-align: left;
+  z-index: 1; /* Asegura que el texto esté sobre la imagen */
+  padding: 20px; /* Ajusta el espacio alrededor del texto */
+}
+
+/* Opcional: estilo para el título y párrafo */
+.text-overlay h2 {
+  font-size: 64px; /* Ajusta el tamaño según sea necesario */
+}
+
+.text-overlay p {
+  font-size: 1.25rem; /* Ajusta el tamaño según sea necesario */
+}
+
+.hero .container .container-fluid {
+  height: 100%; /* Asegura que el contenedor ocupe toda la altura */
+}
+}
+#hero img {
+  width: 100%; /* Que la imagen ocupe todo el ancho */
+  height: 100%; /* Que la imagen ocupe toda la altura */
+  object-fit: cover; /* Ajuste la imagen para cubrir todo el espacio sin distorsión */
 }
 
 .hero h2 {
-  font-size: 48px;
+    font-family: 'archivo black';
+    font-weight: bold; /* Puedes definir el grosor de la fuente */
+  font-size: 60px;
   font-weight: 700;
   margin-bottom: 20px;
+    color: #730202
+    
 }
 
 .hero h2 .accent {
   color: var(--accent-color);
 }
 
-.hero p {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+.hero p { font-family: 'space grotesk';
+    font-weight: normal; /* Puedes definir el grosor de la fuente */
+  color: #042940
   font-weight: 400;
   margin-bottom: 30px;
 }
@@ -732,8 +773,19 @@ section,
   height: 100%;
   width: 100%;
   text-align: center;
+    font-family: 'space grotesk';
+    font-weight: normal; /* Puedes definir el grosor de la fuente */
+  color: #042940
+}
+/* Cambiar el color del texto del título (h4) */
+.icon-box h4 {
+  color: #730202; /* Cambia este valor al color que desees */
 }
 
+/* Cambiar el color del texto del párrafo (p) */
+.icon-box p {
+  color: #042940; /* Cambia este valor al color que desees */
+}
 .hero .icon-box .title {
   font-weight: 700;
   margin-bottom: 15px;
@@ -1207,6 +1259,12 @@ section,
 
 .service-details .service-box h4 {
   font-size: 20px;
+    font-family: 'archivo black';
+    font-size: 16px;
+    font-weight: 400; /* Grosor de la fuente */
+    font-style: normal; /* También puede ser italic */
+    line-height: 1.6; /* Espaciado entre líneas */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
   font-weight: 700;
   border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
   padding-bottom: 15px;
